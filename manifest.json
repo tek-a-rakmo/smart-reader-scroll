@@ -1,0 +1,48 @@
+{
+  "manifest_version": 3,
+  "name": "Smart Reader Scroll",
+  "version": "1.0.0",
+  "description": "Smooth automatic scrolling for reading manga, manhwa, webnovels, and other long-form content.",
+  "permissions": ["activeTab", "storage"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Smart Reader Scroll"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "commands": {
+    "start-scroll": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+S"
+      },
+      "description": "Start scrolling"
+    },
+    "stop-scroll": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+P"
+      },
+      "description": "Pause scrolling"
+    },
+    "speed-up": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Up"
+      },
+      "description": "Increase scroll speed"
+    },
+    "speed-down": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Down"
+      },
+      "description": "Decrease scroll speed"
+    }
+  },
+  "icons": {}
+}

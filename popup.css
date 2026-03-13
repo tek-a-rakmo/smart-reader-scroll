@@ -1,0 +1,289 @@
+/* ===== Base Reset & Variables ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #1a1b2e;
+  --surface: #242640;
+  --surface-hover: #2e3052;
+  --primary: #6c63ff;
+  --primary-hover: #5a52e0;
+  --danger: #ff6b6b;
+  --danger-hover: #e05555;
+  --text: #e8e8f0;
+  --text-muted: #9a9ab8;
+  --green: #4cdf8b;
+  --radius: 10px;
+  --radius-sm: 6px;
+  --transition: 0.18s ease;
+}
+
+body {
+  width: 320px;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ===== Container ===== */
+.container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* ===== Header ===== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1 {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  transition: background var(--transition);
+}
+
+.status-dot.active {
+  background: var(--green);
+  box-shadow: 0 0 6px var(--green);
+}
+
+/* ===== Buttons ===== */
+.btn-group {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition), transform 0.1s ease;
+  color: #fff;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn-start {
+  background: var(--primary);
+}
+
+.btn-start:hover {
+  background: var(--primary-hover);
+}
+
+.btn-pause {
+  background: var(--danger);
+}
+
+.btn-pause:hover {
+  background: var(--danger-hover);
+}
+
+/* ===== Speed Section ===== */
+.speed-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.speed-label {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.speed-value {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--primary);
+  min-width: 28px;
+  text-align: center;
+}
+
+.speed-unit {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+/* ===== Range Slider ===== */
+.speed-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--surface);
+  outline: none;
+  cursor: pointer;
+}
+
+.speed-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--primary);
+  border: 3px solid var(--bg);
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(108, 99, 255, 0.35);
+  transition: transform 0.12s ease;
+}
+
+.speed-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+
+.speed-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--primary);
+  border: 3px solid var(--bg);
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(108, 99, 255, 0.35);
+}
+
+/* ===== Numeric Input ===== */
+.speed-input-row {
+  display: flex;
+  gap: 8px;
+}
+
+.speed-input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 2px solid var(--surface);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  outline: none;
+  transition: border-color var(--transition);
+}
+
+.speed-input:focus {
+  border-color: var(--primary);
+}
+
+.speed-input::-webkit-inner-spin-button,
+.speed-input::-webkit-outer-spin-button {
+  opacity: 1;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* ===== Presets ===== */
+.presets {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.presets-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.preset-group {
+  display: flex;
+  gap: 6px;
+}
+
+.preset {
+  flex: 1;
+  padding: 8px 4px;
+  border: 2px solid var(--surface);
+  border-radius: 20px;
+  background: var(--surface);
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  transition: all var(--transition);
+}
+
+.preset:hover {
+  background: var(--surface-hover);
+  color: var(--text);
+}
+
+.preset.active {
+  border-color: var(--primary);
+  background: rgba(108, 99, 255, 0.15);
+  color: var(--primary);
+}
+
+/* ===== Footer ===== */
+footer {
+  text-align: center;
+}
+
+.hint {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+kbd {
+  display: inline-block;
+  padding: 1px 5px;
+  font-size: 10px;
+  font-family: inherit;
+  background: var(--surface);
+  border-radius: 3px;
+  border: 1px solid var(--surface-hover);
+  color: var(--text);
+}

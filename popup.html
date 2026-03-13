@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="popup.css" />
+  <title>Smart Reader Scroll</title>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Smart Reader Scroll</h1>
+      <div class="status" id="status">
+        <span class="status-dot" id="statusDot"></span>
+        <span id="statusText">Paused</span>
+      </div>
+    </header>
+
+    <section class="controls">
+      <div class="btn-group">
+        <button id="startBtn" class="btn btn-start" title="Start scrolling (S)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+          Start
+        </button>
+        <button id="pauseBtn" class="btn btn-pause" title="Pause scrolling (P)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><rect x="5" y="3" width="4" height="18"/><rect x="15" y="3" width="4" height="18"/></svg>
+          Pause
+        </button>
+      </div>
+    </section>
+
+    <section class="speed-section">
+      <label class="speed-label">
+        Speed
+        <span class="speed-value" id="speedDisplay">2</span>
+        <span class="speed-unit">px/frame</span>
+      </label>
+      <input
+        type="range"
+        id="speedSlider"
+        class="speed-slider"
+        min="1"
+        max="50"
+        step="1"
+        value="2"
+      />
+      <div class="speed-input-row">
+        <label for="speedInput" class="sr-only">Custom speed</label>
+        <input
+          type="number"
+          id="speedInput"
+          class="speed-input"
+          min="1"
+          max="50"
+          step="1"
+          value="2"
+          placeholder="Speed"
+        />
+      </div>
+    </section>
+
+    <section class="presets">
+      <span class="presets-label">Presets</span>
+      <div class="preset-group">
+        <button class="preset" data-speed="1">Slow</button>
+        <button class="preset active" data-speed="2">Normal</button>
+        <button class="preset" data-speed="5">Fast</button>
+        <button class="preset" data-speed="custom" id="presetCustom">Custom</button>
+      </div>
+    </section>
+
+    <footer>
+      <span class="hint">Keys: <kbd>S</kbd> Start &middot; <kbd>P</kbd> Pause &middot; <kbd>&uarr;</kbd><kbd>&darr;</kbd> Speed</span>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
