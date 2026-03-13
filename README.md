@@ -3,11 +3,14 @@
 A Chrome Extension (Manifest V3) for smooth automatic scrolling while reading long-form content such as manga, manhwa, and webnovels.
 
 ---
+## Motivation
+
+I built this extension because I spend a lot of time reading manga, manhwa, and webnovels online. During long reading sessions, constantly scrolling the page breaks the reading flow and becomes distracting. I wanted a simple tool that would let the page scroll automatically at a comfortable pace so I could focus entirely on the story. This project started as a small personal solution to improve my own reading experience, but I decided to make it open source so others who enjoy long-form online reading can use it, modify it, and improve it as well.
 
 ## Features
 
 - **Smooth auto-scrolling** powered by `requestAnimationFrame` for buttery 60fps performance
-- **Adjustable speed** via slider (1-50 px/frame), numeric input, or preset buttons (Slow / Normal / Fast / Custom)
+- **Adjustable speed** via slider (~0.2–50 px/frame), numeric input, or preset buttons (multiple slow levels / Normal / Fast / Custom)
 - **Reading Flow Mode** -- automatically pauses scrolling when you switch tabs and resumes when you come back
 - **Keyboard shortcuts** -- bare keys on the page (S, P, Arrow Up/Down) and global Chrome shortcuts (Ctrl+Shift+S/P/Up/Down)
 - **Persistent preferences** -- your last speed setting is saved and restored automatically
@@ -92,7 +95,7 @@ Every response includes `{ scrolling, speed }` so the popup can update its UI.
 - Dark-themed, 320px wide popup designed for quick adjustments during reading sessions.
 - Start/Pause buttons with inline SVG icons.
 - Range slider and numeric input are kept in sync -- changing one updates the other.
-- Preset pill buttons: Slow (1), Normal (2), Fast (5), Custom.
+- Multiple slow presets for webnovels: Ultra Slow (0.2), Very Slow (0.4), Slow (0.6), Medium Slow (1), Normal (2), Fast (5), plus Custom.
 - Status indicator (green dot = scrolling, gray = paused).
 - Speed is persisted to `chrome.storage.local` and restored when the popup opens.
 

@@ -39,9 +39,9 @@
         type="range"
         id="speedSlider"
         class="speed-slider"
-        min="1"
+        min="0.2"
         max="50"
-        step="1"
+        step="0.1"
         value="2"
       />
       <div class="speed-input-row">
@@ -50,9 +50,9 @@
           type="number"
           id="speedInput"
           class="speed-input"
-          min="1"
+          min="0.2"
           max="50"
-          step="1"
+          step="0.1"
           value="2"
           placeholder="Speed"
         />
@@ -62,7 +62,10 @@
     <section class="presets">
       <span class="presets-label">Presets</span>
       <div class="preset-group">
-        <button class="preset" data-speed="1">Slow</button>
+        <button class="preset" data-speed="0.2">Ultra Slow</button>
+        <button class="preset" data-speed="0.4">Very Slow</button>
+        <button class="preset" data-speed="0.6">Slow</button>
+        <button class="preset" data-speed="1">Medium Slow</button>
         <button class="preset active" data-speed="2">Normal</button>
         <button class="preset" data-speed="5">Fast</button>
         <button class="preset" data-speed="custom" id="presetCustom">Custom</button>

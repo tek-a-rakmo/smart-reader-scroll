@@ -1,7 +1,7 @@
 (() => {
   "use strict";
 
-  const PRESET_SPEEDS = { 1: "slow", 2: "normal", 5: "fast" };
+  const PRESET_SPEEDS = { 0.2: "ultra-slow", 0.4: "very-slow", 0.6: "slow", 1: "medium-slow", 2: "normal", 5: "fast" };
 
   const startBtn = document.getElementById("startBtn");
   const pauseBtn = document.getElementById("pauseBtn");
@@ -23,9 +23,12 @@
   }
 
   function updateUI(speed, scrolling) {
-    speedSlider.value = Math.min(speed, 50);
-    speedInput.value = speed;
-    speedDisplay.textContent = speed;
+    const clamped = Math.max(0.2, Math.min(speed, 50));
+    const displayValue = Number(clamped.toFixed(1));
+
+    speedSlider.value = clamped;
+    speedInput.value = displayValue;
+    speedDisplay.textContent = displayValue;
 
     if (scrolling) {
       statusDot.classList.add("active");
@@ -35,7 +38,7 @@
       statusText.textContent = "Paused";
     }
 
-    highlightPreset(speed);
+    highlightPreset(clamped);
   }
 
   function highlightPreset(speed) {
@@ -52,7 +55,7 @@
   }
 
   function setSpeed(newSpeed) {
-    const clamped = Math.max(1, Math.min(Math.round(newSpeed), 50));
+    const clamped = Math.max(0.2, Math.min(newSpeed, 50));
     updateUI(clamped, statusDot.classList.contains("active"));
     chrome.storage.local.set({ speed: clamped });
     sendToActiveTab({ type: "SET_SPEED", speed: clamped });

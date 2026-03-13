@@ -26,7 +26,7 @@ chrome.commands.onCommand.addListener((command) => {
       // For speed-up/down we need the current speed first, then adjust it
       chrome.tabs.sendMessage(tabs[0].id, { type: "GET_STATE" }, (response) => {
         if (chrome.runtime.lastError || !response) return;
-        const newSpeed = Math.max(1, Math.min(response.speed + msg.delta, 50));
+        const newSpeed = Math.max(0.2, Math.min(response.speed + msg.delta, 50));
         chrome.tabs.sendMessage(tabs[0].id, {
           type: "SET_SPEED",
           speed: newSpeed,

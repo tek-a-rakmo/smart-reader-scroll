@@ -30,7 +30,8 @@
   }
 
   function setSpeed(newSpeed) {
-    speed = Math.max(0.5, Math.min(newSpeed, 100));
+    // Allow very slow speeds for comfortable webnovel reading
+    speed = Math.max(0.2, Math.min(newSpeed, 100));
     chrome.storage.local.set({ speed });
   }
 
